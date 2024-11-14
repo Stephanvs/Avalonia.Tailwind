@@ -28,9 +28,9 @@ namespace Avalonia.Tailwind.Styles
     public static string GetClassName(ClassNamingStrategy namingStrategy, params string[] parts)
       => namingStrategy switch
       {
-        ClassNamingStrategy.CamelCase => CssClassName.GetClassNameCamelCase(parts),
-        ClassNamingStrategy.Underscore => CssClassName.GetClassNameUnderScore(parts),
-        _ => throw new ArgumentException(nameof(namingStrategy)),
+        ClassNamingStrategy.CamelCase => GetClassNameCamelCase(parts),
+        ClassNamingStrategy.Underscore => GetClassNameUnderScore(parts),
+        _ => throw new ArgumentException($"Unknown naming strategy: {namingStrategy}", nameof(namingStrategy)),
       };
   }
 }
