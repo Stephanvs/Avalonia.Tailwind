@@ -20,7 +20,7 @@ namespace Avalonia
           definitions ?? new DefaultStyleDefinitionProvider().Definitions,
           controlTypes ?? new AvaloniaControlTypeProvider().GetAvaloniaControls(),
           namingStrategy
-        ).AsEnumerable();
+        );
 
         appBuilder.Instance?.Styles.AddRange(styles);
       });
