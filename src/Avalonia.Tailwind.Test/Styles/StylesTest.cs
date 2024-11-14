@@ -9,6 +9,7 @@ using Avalonia.Controls.Shapes;
 using Avalonia.Tailwind.Styles;
 using Avalonia.Tailwind.Controls;
 using Avalonia.Styling;
+using FluentAssertions;
 
 namespace Avalonia.Tailwind.Test
 {
@@ -49,6 +50,19 @@ namespace Avalonia.Tailwind.Test
 
       this.output.Dump($"Number of Styles: {styles.Length}");
     }
+
+    [Fact]
+    public void TEMP_GRIDSPLITTER_StylesTest_CreateAllStyles()
+    {
+      var styleDefinitions = new DefaultStyleDefinitionProvider().Definitions;
+      var types = AvaloniaControlHelper.GetAvaloniaControls().Where(t => t.Name.Equals("GridSplitter")).ToArray();
+      types.Length.Should().Be(1);
+      var styles = StyleUtils.CreateStyles(styleDefinitions, types, ClassNamingStrategy.Underscore).ToArray();
+
+      this.output.Dump($"Number of Styles: {styles.Length}");
+    }
+
+
 
     [Fact]
     public void StylesTest_Ctor()

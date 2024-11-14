@@ -23,7 +23,7 @@ namespace Avalonia.Tailwind.Test.Styles
 
       /* assert */
       this.output.Dump(fontWeights);
-      fontWeights.Should().NotBeNullOrEmpty().And.HaveCount(16);
+      fontWeights.Should().NotBeNullOrEmpty().And.HaveCount(18);
     }
   }
 }

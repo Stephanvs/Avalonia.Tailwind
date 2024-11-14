@@ -4,16 +4,14 @@ using Avalonia.Styling;
 
 namespace Avalonia.Tailwind
 {
-  public class ConsolidateSetter : ISetter
+  public class ConsolidateSetter() : Setter
   {
-    readonly Setter internalSetter;
+    private readonly Setter internalSetter = new();
 
-    public AvaloniaProperty Property { get; set; }
+    public new AvaloniaProperty Property { get; set; }
 
-    public object Value { get; set; }
+    public new object Value { get; set; }
 
-    public ConsolidateSetter()
-      => this.internalSetter = new Setter();
     public ConsolidateSetter(AvaloniaProperty property, object value)
       : this()
     {
@@ -21,7 +19,7 @@ namespace Avalonia.Tailwind
       this.Value = value;
     }
 
-    static Thickness Merge(IStyleable control, AvaloniaProperty<Thickness> property, Thickness newValue)
+    private static Thickness Merge(StyledElement control, AvaloniaProperty<Thickness> property, Thickness newValue)
     {
       var oldValue = control.GetValue<Thickness>(property);
 
@@ -34,7 +32,7 @@ namespace Avalonia.Tailwind
       );
     }
 
-    static object GetConsolidatedValue(IStyleable control, AvaloniaProperty property, object value)
+    private static object GetConsolidatedValue(StyledElement control, AvaloniaProperty property, object value)
     {
       return (property, value) switch
       {
@@ -43,7 +41,7 @@ namespace Avalonia.Tailwind
       };
     }
 
-    ISetter GetSetter(IStyleable control)
+    private Setter GetSetter(StyledElement control)
     {
       var setter = this.internalSetter;
       setter.Value = GetConsolidatedValue(control, this.Property, this.Value);
@@ -51,10 +49,10 @@ namespace Avalonia.Tailwind
       return setter;
     }
 
-    public IDisposable Apply(IStyle style, IStyleable control, IObservable<bool> activator)
-    {
-      var setter = GetSetter(control);
-      return setter.Apply(style, control, activator);
-    }
+    // public IDisposable Apply(Style style, StyledElement control, IObservable<bool> activator)
+    // {
+    //   var setter = GetSetter(control);
+    //   return setter.Apply(style, control, activator);
+    // }
   }
 }

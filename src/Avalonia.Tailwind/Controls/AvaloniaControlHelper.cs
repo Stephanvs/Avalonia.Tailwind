@@ -9,13 +9,13 @@ namespace Avalonia.Tailwind.Controls
 {
   public static class AvaloniaControlHelper
   {
-    public static IEnumerable<Type> GetAvaloniaControls(Assembly assembly)
+    private static IEnumerable<Type> GetAvaloniaControls(Assembly assembly)
       => assembly
         .GetTypes()
         .Where(t => t.IsSubclassOf(typeof(Control)))
         .Where(t => !t.IsAbstract);
 
-    public static Assembly[] GetDefaultAssemblies()
+    private static Assembly[] GetDefaultAssemblies()
       => new Assembly[] { typeof(Control).Assembly, Assembly.GetEntryAssembly() };
 
     public static IEnumerable<Type> GetAvaloniaControls(Assembly[] assemblies = null)
@@ -29,16 +29,15 @@ namespace Avalonia.Tailwind.Controls
           yield return controlType;
     }
 
-    public static IEnumerable<AvaloniaProperty> GetAvaloniaProperties(Type controlType)
+    private static IEnumerable<AvaloniaProperty> GetAvaloniaProperties(Type controlType)
       => AvaloniaPropertyRegistry.Instance.GetRegistered(controlType);
 
     public static IEnumerable<(Type controlType, AvaloniaProperty property)>
       GetAvaloniaControlProperties(IEnumerable<Type> controlTypes)
         => controlTypes.SelectMany(c => GetAvaloniaProperties(c).Select(p => (c, p)));
 
-    public static
-    IEnumerable<(Type controlType, AvaloniaProperty property)>
-    GetAvaloniaControlPropertiesFiltered(IEnumerable<Type> controlTypes)
+    public static IEnumerable<(Type controlType, AvaloniaProperty property)> GetAvaloniaControlPropertiesFiltered(
+      IEnumerable<Type> controlTypes)
     {
       /* first get all controlType / property tuples  */
       var controlProperties = controlTypes
@@ -51,7 +50,7 @@ namespace Avalonia.Tailwind.Controls
       /* we want to return only a property of the most parent control, as all selected based on "Is()" will match it */
       return controlProperties.GroupBy(cp => cp.property, cp => cp.control)
         .SelectMany(group => group
-          .Where(type => !group.Any(gt => type.IsSubclassOf(gt)))
+          .Where(type => !group.Any(type.IsSubclassOf))
           .Select(type => (control: type, property: group.Key))
         );
     }

@@ -11,8 +11,10 @@
     <AvaloniaResource Include="profile.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.9.12" />
-    <PackageReference Include="Avalonia.Desktop" Version="0.9.12" />
+    <PackageReference Include="Avalonia" Version="11.2.0" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.2.0" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="11.2.0" />
+    <PackageReference Include="Avalonia.Themes.Simple" Version="11.2.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Avalonia.Tailwind\Avalonia.Tailwind.csproj" />
