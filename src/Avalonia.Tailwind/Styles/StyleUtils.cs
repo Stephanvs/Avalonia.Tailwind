@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Intrinsics.X86;
 using Avalonia.Styling;
 using Avalonia.Tailwind.Controls;
 using Avalonia.Tailwind.Styles;
@@ -11,11 +10,13 @@ namespace Avalonia.Tailwind
   public static class StyleUtils
   {
     private static (Style style, int priority) CreateStyle(Type controlType, AvaloniaProperty property, object value, string name, string pseudo = null)
-      => (new Style
-      {
-        Selector = Selectors.Is(null, controlType).Class(name).ClassIfNotNull(pseudo),
-        Setters = { new Setter(property, value) },
-      }, pseudo is null ? 0 : 1);
+      => (
+        new Style
+        {
+          Selector = Selectors.Is(null, controlType).Class(name).ClassIfNotNull(pseudo),
+          Setters = { new ConsolidateSetter(property, value) },
+        },
+        pseudo is null ? 0 : 1);
 
     private static IEnumerable<(Style style, int priority)> CreateStyles(Type controlType, AvaloniaProperty property, object value, string name, IEnumerable<string> pseudoClasses)
     {
