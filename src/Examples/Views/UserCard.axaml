@@ -5,17 +5,17 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Examples.Views.UserCard"
              >
-  <Border Classes="p_3">
-    <Border Classes="rounded_md bg_gray_100" >
-      <StackPanel Classes="m_4 s_4" Orientation="Horizontal">
-        <Border Classes="w_6 h_6 rounded_xl bg_gray_400" >
+  <Border Classes="p-3">
+    <Border Classes="rounded-md bg-gray-100" >
+      <StackPanel Classes="m-4 s-4" Orientation="Horizontal">
+        <Border Classes="w-6 h-6 rounded-xl bg-gray-400" >
           <Image Source="/profile.png" />
         </Border>
         <StackPanel>
-          <TextBlock Classes="text_lg" Text="Erin Lindford" />
-          <TextBlock Classes="text_purple_500" Text="Product Engineer" />
-          <TextBlock Classes="text_gray_600" Text="erinlindford@example.com" />
-          <TextBlock Classes="text_gray_600" Text="(555) 765-4321" />
+          <TextBlock Classes="text-lg" Text="Erin Lindford" />
+          <TextBlock Classes="text-purple-500" Text="Product Engineer" />
+          <TextBlock Classes="text-gray-600" Text="erinlindford@example.com" />
+          <TextBlock Classes="text-gray-600" Text="(555) 765-4321" />
         </StackPanel>
       </StackPanel>
     </Border>

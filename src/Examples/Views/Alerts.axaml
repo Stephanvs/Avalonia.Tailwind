@@ -6,44 +6,44 @@
              x:Class="Examples.Views.Alerts">
 
   <StackPanel>
-    <StackPanel Classes="m_4 w_9">
-      <Border Classes="border_1 border_red_500 p_x_4 p_y_3 bg_red_200 rounded_md">
+    <StackPanel Classes="m-4 w-9">
+      <Border Classes="border-1 border-red-500 p-x-4 p-y-3 bg-red-200 rounded-md">
         <Grid ColumnDefinitions="Auto, Auto, *, Auto">
-          <TextBlock Grid.Column="0" Classes="text_red_800 font_bold text_xl align_v_center" Text="Holy smokes!" />
-          <TextBlock Grid.Column="1" Classes="text_red_800 text_xl m_l_3 align_v_center" Text="Something seriously bad happened." />
-          <Button Grid.Column="3" Classes="text_red_500 text_3xl p_0 font_bold" Content="×" />
+          <TextBlock Grid.Column="0" Classes="text-red-800 font-bold text-xl align-v-center" Text="Holy smokes!" />
+          <TextBlock Grid.Column="1" Classes="text-red-800 text-xl m-l-3 align-v-center" Text="Something seriously bad happened." />
+          <Button Grid.Column="3" Classes="text-red-500 text-3xl p-0 font-bold" Content="×" />
         </Grid>
       </Border>
     </StackPanel>
 
-    <StackPanel Classes="m_4" Orientation="Horizontal">
-      <Border Classes="rounded_2xl bg_indigo_800">
-        <StackPanel Classes="m_x_3 m_y_3" Orientation="Horizontal">
-          <Border Classes="bg_indigo_500 rounded_2xl p_x_3 p_y_1">
-            <TextBlock Classes="text_gray_100 font_bold text_lg" Text="NEW" />
+    <StackPanel Classes="m-4" Orientation="Horizontal">
+      <Border Classes="rounded-2xl bg-indigo-800">
+        <StackPanel Classes="m-x-3 m-y-3" Orientation="Horizontal">
+          <Border Classes="bg-indigo-500 rounded-2xl p-x-3 p-y-1">
+            <TextBlock Classes="text-gray-100 font-bold text-lg" Text="NEW" />
           </Border>
-          <TextBlock Classes="text_xl m_l_3 align_v_center text_gray_100 font_demibold" Text="Get the coolest t-shirts from our brand new store" />
-          <TextBlock Classes="m_l_2 text_2xl text_gray_100 font_bold" Text=">" />
+          <TextBlock Classes="text-xl m-l-3 align-v-center text-gray-100 font-demibold" Text="Get the coolest t-shirts from our brand new store" />
+          <TextBlock Classes="m-l-2 text-2xl text-gray-100 font-bold" Text=">" />
         </StackPanel>
       </Border>
     </StackPanel>
 
-    <StackPanel Classes="m_4">
-      <Border Classes="border_l_3 border_orange_500 bg_orange_100">
-        <StackPanel Classes="s_3 m_4" Orientation="Vertical">
-          <TextBlock Classes="text_xl font_bold align_v_center text_orange_700" Text="Be Warned" />
-          <TextBlock Classes="text_xl align_v_center text_orange_700" Text="Something not ideal might be happening." />
+    <StackPanel Classes="m-4">
+      <Border Classes="border-l-3 border-orange-500 bg-orange-100">
+        <StackPanel Classes="s-3 m-4" Orientation="Vertical">
+          <TextBlock Classes="text-xl font-bold align-v-center text-orange-700" Text="Be Warned" />
+          <TextBlock Classes="text-xl align-v-center text-orange-700" Text="Something not ideal might be happening." />
         </StackPanel>
       </Border>
     </StackPanel>
 
-    <StackPanel Classes="m_4">
+    <StackPanel Classes="m-4">
         <StackPanel>
-          <Border Classes="rounded_t_md bg_red_500">
-            <TextBlock Classes="text_gray_100 m_x_4 m_y_3 text_xl font_bold" Text="Danger" />
+          <Border Classes="rounded-t-md bg-red-500">
+            <TextBlock Classes="text-gray-100 m-x-4 m-y-3 text-xl font-bold" Text="Danger" />
           </Border>
-          <Border Classes="rounded_b_md bg_red_100 border_1 border_red_400">
-            <TextBlock Classes="m_4 text_red_700 text_lg" Text="Something not ideal might be happening." />
+          <Border Classes="rounded-b-md bg-red-100 border-1 border-red-400">
+            <TextBlock Classes="m-4 text-red-700 text-lg" Text="Something not ideal might be happening." />
           </Border>
         </StackPanel>
     </StackPanel>

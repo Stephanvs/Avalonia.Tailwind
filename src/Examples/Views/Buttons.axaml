@@ -5,76 +5,76 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Examples.Views.Buttons">
 
-  <Border Classes="p_4 rounded_lg bg_gray_100">
-    <StackPanel Classes="s_4">
+  <Border Classes="p-4 rounded-lg bg-gray-100">
+    <StackPanel Classes="s-4">
 
-      <StackPanel Classes="s_2">
+      <StackPanel Classes="s-2">
         <Button Content="Default" />
       </StackPanel>
 
-      <StackPanel Classes="s_2">
+      <StackPanel Classes="s-2">
         <TextBlock Text="Win10" />
-        <Button Classes="text_xl bg_gray_400 border_2 border_gray_400 p_x_4 p_y_3
-                pointerover_border_gray_500
-                pressed_bg_gray_500" Content="Rename this PC"/>
+        <Button Classes="text-xl bg-gray-400 border-2 border-gray-400 p-x-4 p-y-3
+                pointerover-border-gray-500
+                pressed-bg-gray-500" Content="Rename this PC"/>
       </StackPanel>
 
       <!-- ClipToBounds doesn't work with CornerRadius :( -->
-      <!--<StackPanel Classes="s_2">
+      <!--<StackPanel Classes="s-2">
         <TextBlock Text="Pill" />
 
         <Grid >
-          <Border Classes="rounded_xl border_2 border_blue_800" ClipToBounds="True">
-            <Button Classes="text_gray_100 bg_blue_500"
+          <Border Classes="rounded-xl border-2 border-blue-800" ClipToBounds="True">
+            <Button Classes="text-gray-100 bg-blue-500"
                     Content="Button"/>
           </Border>
           
         </Grid>
       </StackPanel>-->
 
-      <StackPanel Classes="s_2">
+      <StackPanel Classes="s-2">
         <TextBlock Text="Outline" />
-        <Button Classes="text_xl font_demibold border_2
-                text_blue_700 border_blue_700 bg_gray_100
-                pointerover_text_red_700 pointerover_border_red_700
-                pressed_text_red_700"
+        <Button Classes="text-xl font-demibold border-2
+                text-blue-700 border-blue-700 bg-gray-100
+                pointerover-text-red-700 pointerover-border-red-700
+                pressed-text-red-700"
                 Content="Hover me">
         </Button>
       </StackPanel>
       
-      <StackPanel Classes="s_2">
+      <StackPanel Classes="s-2">
         <TextBlock Text="Outline" />
-        <Button Classes="text_xl font_demibold border_2
-                text_blue_700 border_blue_700 bg_gray_100
-                pointerover_text_gray_100 pointerover_bg_blue_500 pointerover_border_blue_500
-                pressed_bg_blue_600 pressed_border_blue_600"
+        <Button Classes="text-xl font-demibold border-2
+                text-blue-700 border-blue-700 bg-gray-100
+                pointerover-text-gray-100 pointerover-bg-blue-500 pointerover-border-blue-500
+                pressed-bg-blue-600 pressed-border-blue-600"
           Content="Hover me 2"/>
       </StackPanel>
 
-      <StackPanel Classes="s_2">
+      <StackPanel Classes="s-2">
         <TextBlock Text="Call to Action" />
-        <Border Classes="rounded_lg">
-          <Button Classes="text_xl font_demibold bg_indigo_600 p_4 border_0 text_gray_100
-                  pointerover_bg_indigo_500
-                  pressed_bg_indigo_700" 
+        <Border Classes="rounded-lg">
+          <Button Classes="text-xl font-demibold bg-indigo-600 p-4 border-0 text-gray-100
+                  pointerover-bg-indigo-500
+                  pressed-bg-indigo-700"
                   Content="Get Started" />
         </Border>
       </StackPanel>
 
-      <StackPanel Classes="s_2">
+      <StackPanel Classes="s-2">
         <TextBlock Text="Secondary Action" />
-        <Button Classes="text_xl font_demibold bg_indigo_200 p_4 border_0 text_indigo_700
-                pointerover_bg_indigo_200
-                pressed_bg_indigo_300"
+        <Button Classes="text-xl font-demibold bg-indigo-200 p-4 border-0 text-indigo-700
+                pointerover-bg-indigo-200
+                pressed-bg-indigo-300"
                 Content="Live Demo" />
       </StackPanel>
 
-      <StackPanel Classes="s_2">
+      <StackPanel Classes="s-2">
         <TextBlock Text="Free" />
-        <Button Classes="text_xl text_gray_600 font_demibold bg_gray_100 border_0" Content="Cancel" />
+        <Button Classes="text-xl text-gray-600 font-demibold bg-gray-100 border-0" Content="Cancel" />
       </StackPanel>
 
-      <Border Classes="w_7 bg_blue_400 h_7 rounded_lg p_1" ClipToBounds="True" MaxWidth="400">
+      <Border Classes="w-7 bg-blue-400 h-7 rounded-lg p-1" ClipToBounds="True" MaxWidth="400">
         <Button Content="Border Test"/>
       </Border>
 

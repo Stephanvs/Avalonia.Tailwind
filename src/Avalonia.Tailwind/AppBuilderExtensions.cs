@@ -12,7 +12,7 @@ namespace Avalonia
       this AppBuilder builder,
       IStyleDefinitions definitions = null,
       IEnumerable<Type> controlTypes = null,
-      ClassNamingStrategy namingStrategy = ClassNamingStrategy.Underscore)
+      ClassNamingStrategy namingStrategy = ClassNamingStrategy.KebabCase)
       => builder.AfterSetup(appBuilder =>
       {
         var styles = StyleGenerator.CreateStyles(

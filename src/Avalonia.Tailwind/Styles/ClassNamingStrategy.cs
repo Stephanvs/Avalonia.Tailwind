@@ -1,4 +1,4 @@
 ﻿namespace Avalonia.Tailwind.Styles
 {
-  public enum ClassNamingStrategy { Underscore, CamelCase };
+  public enum ClassNamingStrategy { Underscore, CamelCase, KebabCase };
 }

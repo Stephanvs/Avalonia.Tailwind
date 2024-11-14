@@ -6,32 +6,31 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Examples.MainWindow"
         Title="Examples"
-        RequestedThemeVariant="Light"
         MinWidth="800" MinHeight="600">
     <Grid>
         <TabControl SelectedIndex="1">
             <TabItem Header="User Card"
-                     Classes="text_blue_500 text_xl pointerover_text_blue_800 selected_text_blue_800">
-                <Grid Classes="bg_gray_400" ColumnDefinitions="Auto" RowDefinitions="Auto">
+                     Classes="text-blue-500 text-xl pointerover-text-blue-800 selected-text-blue-800">
+                <Grid Classes="bg-gray-400" ColumnDefinitions="Auto" RowDefinitions="Auto">
                     <v:UserCard />
                 </Grid>
             </TabItem>
             <TabItem Header="Info Form"
-                     Classes="text_blue_500 text_xl pointerover_text_blue_800 selected_text_blue_800">
-                <Grid Classes="bg_gray_400" ColumnDefinitions="Auto" RowDefinitions="Auto">
-                    <v:InfoForm Classes="p_4" />
+                     Classes="text-blue-500 text-xl pointerover-text-blue-800 selected-text-blue-800">
+                <Grid Classes="bg-gray-400" ColumnDefinitions="Auto" RowDefinitions="Auto">
+                    <v:InfoForm Classes="p-4" />
                 </Grid>
             </TabItem>
             <TabItem Header="Buttons"
-                     Classes="text_blue_500 text_xl pointerover_text_blue_800 selected_text_blue_800">
-                <Grid Classes="bg_gray_400" ColumnDefinitions="Auto" RowDefinitions="Auto">
-                    <v:Buttons Classes="p_4" />
+                     Classes="text-blue-500 text-xl pointerover-text-blue-800 selected-text-blue-800">
+                <Grid Classes="bg-gray-400" ColumnDefinitions="Auto" RowDefinitions="Auto">
+                    <v:Buttons Classes="p-4" />
                 </Grid>
             </TabItem>
 
             <TabItem Header="Alerts"
-                     Classes="text_blue_500 text_xl pointerover_text_blue_800 selected_text_blue_800">
-                <Grid Classes="bg_gray_400 h_align_left" ColumnDefinitions="Auto" RowDefinitions="Auto">
+                     Classes="text-blue-500 text-xl pointerover-text-blue-800 selected-text-blue-800">
+                <Grid Classes="bg-gray-400 h-align-left" ColumnDefinitions="Auto" RowDefinitions="Auto">
                     <v:Alerts />
                 </Grid>
             </TabItem>
