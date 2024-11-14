@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Avalonia.Tailwind;
-using Avalonia.Controls;
-using Avalonia.Styling;
 using Avalonia.Tailwind.Styles;
 using Avalonia.Tailwind.Controls;
 
@@ -22,14 +20,9 @@ namespace Avalonia
           definitions ?? new DefaultStyleDefinitionProvider().Definitions,
           controlTypes ?? new AvaloniaControlTypeProvider().GetAvaloniaControls(),
           namingStrategy
-        );
+        ).AsEnumerable();
 
-        var sp = styles.Where(x => x.Selector.ToString().Contains("m_b")).ToArray();
-
-        foreach (var style in styles)
-        {
-          appBuilder.Instance?.Styles.Add(style);
-        }
+        appBuilder.Instance?.Styles.AddRange(styles);
       });
   }
 }
