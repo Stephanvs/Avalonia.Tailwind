@@ -22,18 +22,15 @@ namespace Avalonia.Tailwind.Styles
       return strBuilder.ToString();
     }
 
-    private static string GetClassNameKebabCase(params string[] parts)
-      => string.Join("-", parts.Where(p => !string.IsNullOrEmpty(p)).Select(p => p.ToLower()));
-
-    private static string GetClassNameUnderScore(params string[] parts)
-      => string.Join("_", parts.Where(p => !string.IsNullOrEmpty(p)).Select(p => p.ToLower()));
+    private static string GetClassNameSeparated(string separator, params string[] parts)
+      => string.Join(separator, parts.Where(p => !string.IsNullOrEmpty(p)).Select(p => p.ToLower()));
 
     public static string GetClassName(ClassNamingStrategy namingStrategy, params string[] parts)
       => namingStrategy switch
       {
         ClassNamingStrategy.CamelCase => GetClassNameCamelCase(parts),
-        ClassNamingStrategy.Underscore => GetClassNameUnderScore(parts),
-        ClassNamingStrategy.KebabCase => GetClassNameKebabCase(parts),
+        ClassNamingStrategy.Underscore => GetClassNameSeparated("_", parts),
+        ClassNamingStrategy.KebabCase => GetClassNameSeparated("-", parts),
         _ => throw new ArgumentException($"Unknown naming strategy: {namingStrategy}", nameof(namingStrategy)),
       };
   }
