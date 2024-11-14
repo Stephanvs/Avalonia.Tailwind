@@ -15,7 +15,7 @@ namespace Avalonia
       ClassNamingStrategy namingStrategy = ClassNamingStrategy.Underscore)
       => builder.AfterSetup(appBuilder =>
       {
-        var styles = StyleUtils.CreateStyles(
+        var styles = StyleGenerator.CreateStyles(
           definitions ?? new DefaultStyleDefinitionProvider().Definitions,
           controlTypes ?? new AvaloniaControlTypeProvider().GetAvaloniaControls(),
           namingStrategy

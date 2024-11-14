@@ -34,7 +34,7 @@ namespace Avalonia.Tailwind.Test
     {
       var styleDefinitions = new DefaultStyleDefinitionProvider().Definitions;
       var types = new Type[] { type };
-      var styles = StyleUtils.CreateStyles(styleDefinitions, types, ClassNamingStrategy.Underscore).ToArray();
+      var styles = StyleGenerator.CreateStyles(styleDefinitions, types, ClassNamingStrategy.Underscore).ToArray();
 
       //this.output.Dump(styles);
       foreach (var style in styles)
@@ -46,7 +46,7 @@ namespace Avalonia.Tailwind.Test
     {
       var styleDefinitions = new DefaultStyleDefinitionProvider().Definitions;
       var types = AvaloniaControlHelper.GetAvaloniaControls();
-      var styles = StyleUtils.CreateStyles(styleDefinitions, types, ClassNamingStrategy.Underscore).ToArray();
+      var styles = StyleGenerator.CreateStyles(styleDefinitions, types, ClassNamingStrategy.Underscore).ToArray();
 
       this.output.Dump($"Number of Styles: {styles.Length}");
     }
@@ -57,7 +57,7 @@ namespace Avalonia.Tailwind.Test
       var styleDefinitions = new DefaultStyleDefinitionProvider().Definitions;
       var types = AvaloniaControlHelper.GetAvaloniaControls().Where(t => t.Name.Equals("GridSplitter")).ToArray();
       types.Length.Should().Be(1);
-      var styles = StyleUtils.CreateStyles(styleDefinitions, types, ClassNamingStrategy.Underscore).ToArray();
+      var styles = StyleGenerator.CreateStyles(styleDefinitions, types, ClassNamingStrategy.Underscore).ToArray();
 
       this.output.Dump($"Number of Styles: {styles.Length}");
     }
