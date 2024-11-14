@@ -9,16 +9,10 @@ namespace Avalonia.Tailwind.Controls
     IEnumerable<Type> GetAvaloniaControls();
   }
 
-  public class AvaloniaControlTypeProvider : IAvaloniaControlTypeProvider
+  public class AvaloniaControlTypeProvider(params Assembly[] assemblies)
+    : IAvaloniaControlTypeProvider
   {
-    readonly Assembly[] assemblies;
-
-    public AvaloniaControlTypeProvider(params Assembly[] assemblies)
-    {
-      this.assemblies = assemblies;
-    }
-
-    public IEnumerable<Type> GetAvaloniaControls() => AvaloniaControlHelper.GetAvaloniaControls(this.assemblies);
+    public IEnumerable<Type> GetAvaloniaControls()
+      => AvaloniaControlHelper.GetAvaloniaControls(assemblies);
   }
-
 }

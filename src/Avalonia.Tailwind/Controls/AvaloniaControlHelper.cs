@@ -16,7 +16,7 @@ namespace Avalonia.Tailwind.Controls
         .Where(t => !t.IsAbstract);
 
     private static Assembly[] GetDefaultAssemblies()
-      => new Assembly[] { typeof(Control).Assembly, Assembly.GetEntryAssembly() };
+      => [typeof(Control).Assembly, Assembly.GetEntryAssembly()];
 
     public static IEnumerable<Type> GetAvaloniaControls(Assembly[] assemblies = null)
     {
