@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Linq;
 
 using Avalonia.Controls;
@@ -13,20 +12,20 @@ namespace Avalonia.Tailwind.Controls
     public static IEnumerable<string> GetPseudoClasses(Type type)
       => type switch
       {
-        Type o when o == typeof(InputElement) => new[] { ":disabled", ":focus", ":focus-visible", ":pointerover" },
-        Type o when o == typeof(Button) => new[] { ":pressed" },
-        Type o when o == typeof(TabItem) => new[] {":pressed", ":selected" },
-        //Type o when o == typeof(ToggleButton) => new[] { ":checked", ":unchecked", ":indeterminate" },
-        //Type o when o == typeof(ItemsControl) => new[] { ":empty", ":singleitem" },
-        _ => new string[0],
+        not null when type == typeof(InputElement) => [":disabled", ":focus", ":focus-visible", ":pointerover"],
+        not null when type == typeof(Button) => [":pressed"],
+        not null when type == typeof(TabItem) => [":pressed", ":selected"],
+        // not null when type == typeof(ToggleButton) => [":checked", ":unchecked", ":indeterminate"],
+        // not null when type == typeof(ItemsControl) => [":empty", ":singleitem"],
+        _ => [],
       };
 
     public static IEnumerable<string> GetPseudoClassesRecursive(Type type) 
       => type == null
-        ? new string[0]
+        ? Array.Empty<string>()
         : GetPseudoClasses(type).Union(GetPseudoClassesRecursive(type.BaseType));
 
     public static IEnumerable<string> GetAllPseudoClasses(IEnumerable<Type> types = null)
-      => (types ?? AvaloniaControlHelper.GetAvaloniaControls()).SelectMany(t => GetPseudoClassesRecursive(t)).Distinct();
+      => (types ?? AvaloniaControlHelper.GetAvaloniaControls()).SelectMany(GetPseudoClassesRecursive).Distinct();
   }
 }
