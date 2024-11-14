@@ -4,13 +4,14 @@ using Avalonia.Markup.Xaml;
 
 namespace Examples
 {
-  public class MainWindow : Window
+  public partial class MainWindow : Window
   {
     public MainWindow()
     {
       InitializeComponent();
+
 #if DEBUG
-            this.AttachDevTools();
+      this.AttachDevTools();
 #endif
     }
 

@@ -4,7 +4,7 @@ using Avalonia.Markup.Xaml;
 
 namespace Examples.Views
 {
-  public class InfoForm : UserControl
+  public partial class InfoForm : UserControl
   {
     public InfoForm()
     {

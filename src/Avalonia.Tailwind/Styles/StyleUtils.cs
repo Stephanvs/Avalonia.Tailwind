@@ -10,29 +10,33 @@ namespace Avalonia.Tailwind
 {
   public static class StyleUtils
   {
-    static (Style style, int priority) CreateStyle(Type controlType, AvaloniaProperty property, object value, string name, string pseudo = null)
+    private static (Style style, int priority) CreateStyle(Type controlType, AvaloniaProperty property, object value, string name, string pseudo = null)
       => (new Style
       {
         Selector = Selectors.Is(null, controlType).Class(name).ClassIfNotNull(pseudo),
-        Setters = new List<ISetter> { new ConsolidateSetter(property, value) },
+        Setters = { new Setter(property, value) },
       }, pseudo is null ? 0 : 1);
 
-    static IEnumerable<(Style style, int priority)> CreateStyles(Type controlType, AvaloniaProperty property, object value, string name, IEnumerable<string> pseudoClasses)
+    private static IEnumerable<(Style style, int priority)> CreateStyles(Type controlType, AvaloniaProperty property, object value, string name, IEnumerable<string> pseudoClasses)
     {
+      yield return CreateStyle(controlType, property, value, name, null);
+
+      foreach (var pseudo in pseudoClasses)
+      {
+        yield return CreateStyle(controlType, property, value, GetPseudoClassName(name, pseudo), pseudo);
+      }
+
+      yield break;
+
       static string GetPseudoClassName(string name, string pseudo)
         => pseudo switch
         {
-          string p when p.StartsWith(":") => $"{p[1..]}_{name}",
-          string p => $"{p}_{name}",
-          _ => name,
+          _ when pseudo.StartsWith(':') => $"{pseudo[1..]}_{name}",
+          _ => $"{pseudo}_{name}",
         };
-
-      yield return CreateStyle(controlType, property, value, name, null);
-      foreach (var pseudo in pseudoClasses)
-        yield return CreateStyle(controlType, property, value, GetPseudoClassName(name, pseudo), pseudo);
     }
 
-    static IEnumerable<(Style style, int priority)> CreateStyles(
+    private static IEnumerable<(Style style, int priority)> CreateStyles(
       Type controlType,
       AvaloniaProperty property,
       IStyleDefinitions definitions,
@@ -88,7 +92,7 @@ namespace Avalonia.Tailwind
         "FontWeight" => definitions.FontWeight.Select(d =>
           CreateStyle(controlType, property, d.weight, getClassName("font", d.name))),
 
-       _ => new(Style, int)[0],
+       _ => Array.Empty<(Style, int)>(),
       };
     }
 
